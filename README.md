@@ -86,7 +86,7 @@ After the HashMap is loaded with all the combinations and the times they happen,
 
 The architecture used for this program is MVC. Though there's no real "view", since there was no UI required for this project, there are Models which interact with controllers, which do all the logic required for, in this case, loading the data into memory, filtering it and writing it again as an output with the information required (in this case, it was to count how much times two Employees meet in the office at the same time)
 
-This pattern assures that the responsibility for manipulating the data isn't on the Model, but rather through invoking it when a request is done. Of course, this is what the controller does. The model is purely a representation of the information the system has. The controller would also be in charge of sending the information required to the view. Basically, the controller works as a middleware between these two.
+This pattern assures that the responsibility for manipulating the data isn't on the Model, but rather through invoking it when a request is done. Of course, this is what the controller does. The model is purely a representation of the information the system has. The controller would also be in charge of sending the information required to the view. Basically, the controller works as a intermediary between these two.
 
 
 ## How to run
