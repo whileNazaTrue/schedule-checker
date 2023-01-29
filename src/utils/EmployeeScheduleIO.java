@@ -26,11 +26,13 @@ public class EmployeeScheduleIO {
     }
 
     private void createDataDirectory() {
-        new File("./src/data").mkdirs();
+        new File("./data").mkdirs();
     }
 
     private String readFileContent() throws IOException {
-        return Files.readString(Path.of("./src/data/input.txt"));
+        String curdir = new File(".").getCanonicalPath();
+        Path path = Path.of(curdir + "\\data\\input.txt");
+        return Files.readString(path);
     }
 
     private String[] splitByLineBreak(String content) {

@@ -102,11 +102,15 @@ public class App {
 
     public void saveMatchingSchedulesToFile(Map<String, Integer> matchingSchedules) throws IOException {
         String curdir = new File(".").getCanonicalPath();
-        String filename = curdir + "\\src\\data\\output.txt";
+        String filename = curdir + "\\data\\output.txt";
         try (BufferedWriter writer = new BufferedWriter(new FileWriter(filename))) {
-            for (Map.Entry<String, Integer> entry : matchingSchedules.entrySet()) {
-                writer.write(entry.getKey() + ": " + entry.getValue());
-                writer.newLine();
+            if (matchingSchedules.isEmpty()) {
+                writer.write("No matching schedules found");
+            }else {
+                for (Map.Entry<String, Integer> entry : matchingSchedules.entrySet()) {
+                    writer.write(entry.getKey() + ": " + entry.getValue());
+                    writer.newLine();
+                }
             }
         }
     }
