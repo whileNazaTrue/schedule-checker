@@ -37,6 +37,8 @@ RENE-ASTRID: 3
 <br>
 In simple terms, the program must check how many times do employees work at the same time, grouping them by two. The program will recieve a input.txt file with the format used above.
 
+A sample input text is already in the data folder.
+
 # Approach, methodology and solution
 
 
