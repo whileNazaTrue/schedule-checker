@@ -4,7 +4,9 @@ import exceptions.InvalidWeekdayException;
 import models.Employee;
 import models.Schedule;
 
+import java.io.BufferedWriter;
 import java.io.File;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
@@ -12,6 +14,7 @@ import java.time.DayOfWeek;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
 import static java.time.temporal.TemporalAdjusters.nextOrSame;
 import static utils.DayConverter.convertDay;
@@ -70,6 +73,21 @@ public class EmployeeScheduleIO {
         LocalDateTime begin = LocalDateTime.now().with(nextOrSame(DayOfWeek.of(weekDay))).withHour(Integer.parseInt(beginWorkingHours.substring(0, 2))).withMinute(Integer.parseInt(beginWorkingHours.substring(3, 5)));
         LocalDateTime end = LocalDateTime.now().with(nextOrSame(DayOfWeek.of(weekDay))).withHour(Integer.parseInt(endWorkingHours.substring(0, 2))).withMinute(Integer.parseInt(endWorkingHours.substring(3, 5)));
         return new Schedule(begin, end);
+    }
+
+    public void saveMatchingSchedulesToFile(Map<String, Integer> matchingSchedules) throws IOException {
+        String curdir = new File(".").getCanonicalPath();
+        String filename = curdir + "\\data\\output.txt";
+        try (BufferedWriter writer = new BufferedWriter(new FileWriter(filename))) {
+            if (matchingSchedules.isEmpty()) {
+                writer.write("No matching schedules found");
+            }else {
+                for (Map.Entry<String, Integer> entry : matchingSchedules.entrySet()) {
+                    writer.write(entry.getKey() + ": " + entry.getValue());
+                    writer.newLine();
+                }
+            }
+        }
     }
 
 }

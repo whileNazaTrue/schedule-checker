@@ -13,8 +13,8 @@ import java.util.*;
 
 public class App {
 
-    EmployeeScheduleIO employeeScheduleIO = new EmployeeScheduleIO();
-    List<Employee> employees;
+    private final EmployeeScheduleIO employeeScheduleIO = new EmployeeScheduleIO();
+    private final List<Employee> employees;
 
     public App() {
         this.employees = new ArrayList<>();
@@ -64,7 +64,7 @@ public class App {
         return sb.toString();
     }
 
-    private static void appendSchedules(StringBuilder sb, DateTimeFormatter formatter, Schedule schedule) {
+    private void appendSchedules(StringBuilder sb, DateTimeFormatter formatter, Schedule schedule) {
         String beginHour = schedule.getBeginWorkingHours().format(formatter);
         String endHour = schedule.getEndWorkingHours().format(formatter);
         sb.append(" Begins at: ").append(beginHour).append(" Ends at: ").append(endHour);
@@ -100,20 +100,11 @@ public class App {
         }
     }
 
-    public void saveMatchingSchedulesToFile(Map<String, Integer> matchingSchedules) throws IOException {
-        String curdir = new File(".").getCanonicalPath();
-        String filename = curdir + "\\data\\output.txt";
-        try (BufferedWriter writer = new BufferedWriter(new FileWriter(filename))) {
-            if (matchingSchedules.isEmpty()) {
-                writer.write("No matching schedules found");
-            }else {
-                for (Map.Entry<String, Integer> entry : matchingSchedules.entrySet()) {
-                    writer.write(entry.getKey() + ": " + entry.getValue());
-                    writer.newLine();
-                }
-            }
-        }
+    public void saveMatchingSchedules(Map<String, Integer> matchingSchedules) throws IOException {
+        employeeScheduleIO.saveMatchingSchedulesToFile(matchingSchedules);
     }
+
+
 
 
 
