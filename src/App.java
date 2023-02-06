@@ -15,7 +15,6 @@ public class App {
         this.employees = employees;
     }
 
-
     private void matchSchedules(Employee employee1, Employee employee2, Map<String, Integer> matchingSchedules) {
         for (Schedule schedule1 : employee1.getSchedules()) {
             for (Schedule schedule2 : employee2.getSchedules()) {
@@ -26,6 +25,7 @@ public class App {
             }
         }
     }
+    
     public Map<String, Integer> findMatchingSchedules(){
         Map<String, Integer> matchingSchedules = new HashMap<>();
         int employeeSize = employees.size();
@@ -38,6 +38,5 @@ public class App {
         }
         return matchingSchedules;
     }
-
-
+    
 }
