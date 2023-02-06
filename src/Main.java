@@ -1,10 +1,8 @@
 import exceptions.EmployeeNotFoundException;
 import exceptions.InvalidWeekdayException;
-import models.Employee;
 import utils.EmployeeScheduleIO;
 
 import java.io.IOException;
-import java.util.List;
 import java.util.Map;
 
 

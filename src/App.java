@@ -1,7 +1,6 @@
 import models.Employee;
 import models.Schedule;
 
-import java.io.IOException;
 import java.util.*;
 
 public class App {
@@ -27,7 +26,7 @@ public class App {
             }
         }
     }
-    public Map<String, Integer> findMatchingSchedules() throws IOException {
+    public Map<String, Integer> findMatchingSchedules(){
         Map<String, Integer> matchingSchedules = new HashMap<>();
         int employeeSize = employees.size();
         for (int i = 0; i < employeeSize; i++) {
