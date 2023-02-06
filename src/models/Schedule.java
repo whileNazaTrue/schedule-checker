@@ -15,15 +15,8 @@ public class Schedule {
     }
 
 
-    public LocalDateTime getBeginWorkingHours() {
-        return beginWorkingHours;
-    }
 
-    public LocalDateTime getEndWorkingHours() {
-        return endWorkingHours;
-    }
-
-    public boolean compareSchedules(Schedule schedule) {
+    public boolean checkOverlapping(Schedule schedule) {
         return this.beginWorkingHours.isBefore(schedule.endWorkingHours) && schedule.beginWorkingHours.isBefore(this.endWorkingHours);
     }
 
