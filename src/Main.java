@@ -12,9 +12,5 @@ public class Main {
         App app = new App(employeeScheduleIO.loadScheduleFromFile());
         Map<String,Integer> matches = app.findMatchingSchedules();
         employeeScheduleIO.saveMatchingSchedulesToFile(matches);
-
-
-
-
     }
 }
