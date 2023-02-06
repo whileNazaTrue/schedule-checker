@@ -4,8 +4,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Employee {
-    String name;
-    List<Schedule> schedules;
+    private String name;
+    private List<Schedule> schedules;
 
 
 

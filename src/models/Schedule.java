@@ -3,8 +3,8 @@ package models;
 import java.time.LocalDateTime;
 
 public class Schedule {
-    LocalDateTime beginWorkingHours;
-    LocalDateTime endWorkingHours;
+    private LocalDateTime beginWorkingHours;
+    private LocalDateTime endWorkingHours;
 
 
 
