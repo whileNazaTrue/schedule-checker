@@ -3,8 +3,8 @@ package models;
 import java.time.LocalDateTime;
 
 public class Schedule {
-    LocalDateTime beginWorkingHours;
-    LocalDateTime endWorkingHours;
+    private LocalDateTime beginWorkingHours;
+    private LocalDateTime endWorkingHours;
 
 
 
@@ -15,15 +15,8 @@ public class Schedule {
     }
 
 
-    public LocalDateTime getBeginWorkingHours() {
-        return beginWorkingHours;
-    }
 
-    public LocalDateTime getEndWorkingHours() {
-        return endWorkingHours;
-    }
-
-    public boolean compareSchedules(Schedule schedule) {
+    public boolean checkOverlapping(Schedule schedule) {
         return this.beginWorkingHours.isBefore(schedule.endWorkingHours) && schedule.beginWorkingHours.isBefore(this.endWorkingHours);
     }
 
